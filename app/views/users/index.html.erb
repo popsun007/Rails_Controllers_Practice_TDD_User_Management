@@ -1,6 +1,8 @@
-<h1>Index</h1>
+<h1>Home page</h1>
 
 <% @user.each do |u| %>
 	<%= u.first_name + " " + u.last_name %>
+	<a href="/users/<%= u.id %>">Show</a>
+	<br>
 <% end %>
 <a href="/users/new">New User</a>
