@@ -9,8 +9,13 @@ class UsersController < ApplicationController
 
   def create
     # User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
-    User.create(user_params)
-    redirect_to "/users"
+    user = User.create(user_params)
+    if user.errors.any?
+      @errors = user.errors.full_messages
+      render "/users/new"
+    else
+      redirect_to "/users"
+    end
   end
 private 
   def user_params
