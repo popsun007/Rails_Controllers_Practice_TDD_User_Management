@@ -14,7 +14,7 @@ RSpec.describe 'creating user' do
   end
   it 'displays errors without correct input' do
     click_button 'Create'
-    # expect(current_path).to eq ('/users/new') or eq('/users') because of is a post to /users
+    expect(current_path).to eq ('/users/new')
     expect(page).to have_text("First name can't be blank")
     expect(page).to have_text("Last name can't be blank")
   end
