@@ -27,6 +27,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    User.find(params[:id]).update(user_params)
+    redirect_to "/users"
+  end
+
 private 
   def user_params
    params.require(:user).permit(:first_name, :last_name, :email, :password)
