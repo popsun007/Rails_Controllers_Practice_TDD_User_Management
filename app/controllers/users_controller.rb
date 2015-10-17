@@ -14,8 +14,8 @@ class UsersController < ApplicationController
       user.save
       redirect_to "/users"
     else
-      @errors = user.errors.full_messages
-      render "/users/new"
+      errors = user.errors.full_messages
+      redirect_to "/users/new", flash: {:errors => errors}
     end
   end
 

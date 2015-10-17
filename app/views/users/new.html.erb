@@ -1,5 +1,5 @@
-<% if @errors != nil %>
-	<% @errors.each do |e| %>
+<% if !flash.empty? %>
+	<% flash[:errors].each do |e| %>
 	<%= e  %> <br>
 	<% end %>
 <% end %>
